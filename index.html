@@ -1,734 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UNKNOWN STORE</title>
-  <meta name="description" content="UNKNOWN STORE - Fast digital services" />
-  <style>
-    :root{
-      --bg:#05070d;
-      --bg-2:#0b1020;
-      --card:#10182b;
-      --card-2:#0d1424;
-      --text:#f5f7ff;
-      --muted:#98a4c0;
-      --line:rgba(255,255,255,.08);
-      --blue:#2f6bff;
-      --blue-2:#55a3ff;
-      --shadow:0 20px 50px rgba(0,0,0,.35);
-      --radius:20px;
-      --max:1180px;
-    }
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
-    body{
-      font-family:Arial,sans-serif;
-      background:
-        radial-gradient(circle at top right, rgba(47,107,255,.22), transparent 20%),
-        linear-gradient(180deg, #05070d 0%, #0a1020 100%);
-      color:var(--text);
-      line-height:1.6;
-    }
-
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
-
-    .container{
-      width:min(var(--max), calc(100% - 28px));
-      margin:auto;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 22px;
-      border-radius:12px;
-      font-weight:bold;
-      transition:.25s ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg,var(--blue),var(--blue-2));
-      color:#fff;
-      box-shadow:0 12px 28px rgba(47,107,255,.28);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.03);
-      border-color:var(--line);
-      color:#fff;
-    }
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:100;
-      background:rgba(5,7,13,.82);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--line);
-    }
-
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:900;
-      letter-spacing:.12em;
-    }
-
-    .logo-box{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--blue),var(--blue-2));
-      display:grid;
-      place-items:center;
-      box-shadow:0 10px 25px rgba(47,107,255,.35);
-    }
-
-    nav ul{
-      list-style:none;
-      display:flex;
-      gap:24px;
-      align-items:center;
-    }
-
-    nav a{
-      color:var(--muted);
-      font-weight:bold;
-    }
-
-    nav a:hover{
-      color:#fff;
-    }
-
-    .hero{
-      padding:90px 0 60px;
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(47,107,255,.10);
-      border:1px solid rgba(85,163,255,.18);
-      color:#d9e6ff;
-      font-size:.92rem;
-      font-weight:bold;
-      margin-bottom:18px;
-    }
-
-    .hero h1{
-      font-size:clamp(2.4rem, 4vw, 4.8rem);
-      line-height:.98;
-      margin-bottom:16px;
-    }
-
-    .hero p{
-      color:var(--muted);
-      max-width:700px;
-      margin-bottom:24px;
-      font-size:1.05rem;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:24px;
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-
-    .stat{
-      background:rgba(255,255,255,.03);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
-    }
-
-    .stat strong{
-      display:block;
-      font-size:1.4rem;
-      margin-bottom:4px;
-    }
-
-    .stat span{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:22px;
-      box-shadow:var(--shadow);
-    }
-
-    .screen{
-      background:linear-gradient(180deg,#0b1222,#121d35);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:18px;
-    }
-
-    .screen-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:14px;
-    }
-
-    .screen-tag{
-      font-size:.84rem;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(47,107,255,.12);
-      border:1px solid rgba(85,163,255,.18);
-      color:#dce8ff;
-    }
-
-    .mini-products{
-      display:grid;
-      gap:10px;
-    }
-
-    .mini-item{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-    }
-
-    .mini-item small{
-      display:block;
-      color:var(--muted);
-      margin-top:2px;
-    }
-
-    section{
-      padding:70px 0;
-    }
-
-    .section-title{
-      font-size:clamp(1.8rem,2vw,2.8rem);
-      margin-bottom:10px;
-    }
-
-    .section-text{
-      color:var(--muted);
-      margin-bottom:26px;
-      max-width:760px;
-    }
-
-    .products-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-
-    .product-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-    }
-
-    .product-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      margin-bottom:12px;
-    }
-
-    .icon{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, rgba(47,107,255,.18), rgba(85,163,255,.10));
-      border:1px solid rgba(85,163,255,.16);
-      font-size:1.45rem;
-    }
-
-    .tag{
-      padding:7px 10px;
-      border-radius:999px;
-      font-size:.8rem;
-      font-weight:bold;
-      background:rgba(47,107,255,.12);
-      color:#dbe7ff;
-      border:1px solid rgba(85,163,255,.18);
-    }
-
-    .product-card h3{
-      margin-bottom:8px;
-      font-size:1.2rem;
-    }
-
-    .product-card p{
-      color:var(--muted);
-      margin-bottom:14px;
-      min-height:44px;
-    }
-
-    .price{
-      font-size:1.4rem;
-      font-weight:900;
-      color:#fff;
-      margin-bottom:16px;
-    }
-
-    .features{
-      list-style:none;
-      margin-bottom:20px;
-    }
-
-    .features li{
-      color:var(--muted);
-      padding:6px 0;
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
-
-    .features li:last-child{
-      border-bottom:none;
-    }
-
-    .product-card .btn{
-      margin-top:auto;
-      width:100%;
-    }
-
-    .price-table-wrap{
-      overflow:auto;
-      border-radius:22px;
-    }
-
-    table{
-      width:100%;
-      border-collapse:separate;
-      border-spacing:0 10px;
-    }
-
-    th,td{
-      text-align:left;
-      padding:18px;
-    }
-
-    th{
-      color:#dfe8ff;
-    }
-
-    tbody tr{
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-    }
-
-    tbody td:first-child{
-      border-radius:14px 0 0 14px;
-    }
-
-    tbody td:last-child{
-      border-radius:0 14px 14px 0;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:20px;
-    }
-
-    .contact-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .contact-item{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:16px;
-      margin-top:14px;
-      border-radius:16px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.06);
-    }
-
-    .contact-item span{
-      color:var(--muted);
-      display:block;
-      margin-top:3px;
-    }
-
-    footer{
-      padding:26px 0 40px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      text-align:center;
-    }
-
-    @media (max-width:1000px){
-      .hero-grid,
-      .contact-grid{
-        grid-template-columns:1fr;
-      }
-
-      .products-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-    }
-
-    @media (max-width:760px){
-      nav ul{
-        gap:14px;
-        flex-wrap:wrap;
-        justify-content:flex-end;
-      }
-
-      .products-grid,
-      .hero-stats{
-        grid-template-columns:1fr;
-      }
-
-      .hero{
-        padding-top:60px;
-      }
-    }
-  </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UNKNOWN STORE</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#050505;
+color:white;
+}
+
+header{
+text-align:center;
+padding:80px 20px;
+background:black;
+}
+
+header h1{
+font-size:60px;
+letter-spacing:3px;
+}
+
+section{
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+.service{
+margin-bottom:80px;
+}
+
+.service-title{
+display:flex;
+align-items:center;
+gap:15px;
+font-size:32px;
+margin-bottom:30px;
+}
+
+.service-title img{
+width:40px;
+}
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+
+background:#111;
+padding:25px;
+border-radius:12px;
+text-align:center;
+border:1px solid #222;
+
+}
+
+.price{
+font-size:22px;
+color:#2f6bff;
+margin:10px 0;
+}
+
+button{
+
+background:#2f6bff;
+border:none;
+color:white;
+padding:12px 20px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+
+}
+
+button:hover{
+background:#1e4bd1;
+}
+
+.contact{
+
+text-align:center;
+}
+
+.contact a{
+
+display:block;
+margin:10px 0;
+color:#2f6bff;
+font-size:18px;
+
+}
+
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid #222;
+margin-top:50px;
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <div class="logo-box">U</div>
-        <div>UNKNOWN STORE</div>
-      </div>
+<header>
 
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#prices">Prices</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<h1>UNKNOWN STORE</h1>
 
-  <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge">Premium dark design • Fast digital services • WhatsApp orders</div>
-        <h1>Professional digital services for modern customers.</h1>
-        <p>
-          UNKNOWN STORE offers fast digital services with a premium look, clean layout,
-          and direct WhatsApp ordering. Choose your product, press Buy Now, and your order message is ready instantly.
-        </p>
+</header>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#products">Shop Now</a>
-          <a class="btn btn-secondary" href="https://wa.me/22224620602?text=مرحبا%20اريد%20الطلب%20من%20UNKNOWN%20STORE" target="_blank">WhatsApp</a>
-        </div>
 
-        <div class="hero-stats">
-          <div class="stat">
-            <strong>Fast</strong>
-            <span>Quick order process</span>
-          </div>
-          <div class="stat">
-            <strong>Secure</strong>
-            <span>Simple direct contact</span>
-          </div>
-          <div class="stat">
-            <strong>Premium</strong>
-            <span>Clean store design</span>
-          </div>
-        </div>
-      </div>
+<section class="service">
 
-      <div class="hero-card">
-        <div class="screen">
-          <div class="screen-top">
-            <strong>UNKNOWN STORE</strong>
-            <div class="screen-tag">Live Catalog</div>
-          </div>
+<div class="service-title">
 
-          <div class="mini-products">
-            <div class="mini-item">
-              <div>
-                <strong>Snapchat+ 3 Months</strong>
-                <small>Premium subscription</small>
-              </div>
-              <strong>220 MRU</strong>
-            </div>
+<img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
 
-            <div class="mini-item">
-              <div>
-                <strong>Netflix Monthly</strong>
-                <small>Streaming service</small>
-              </div>
-              <strong>200 MRU</strong>
-            </div>
+Snapchat+
 
-            <div class="mini-item">
-              <div>
-                <strong>Netflix Full Account</strong>
-                <small>Full account access</small>
-              </div>
-              <strong>650 MRU</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section id="products">
-    <div class="container">
-      <h2 class="section-title">Products</h2>
-      <p class="section-text">
-        Every service includes a Buy Now button that opens WhatsApp with the exact order message already written.
-      </p>
 
-      <div class="products-grid">
+<div class="products">
 
-        <div class="product-card">
-          <div class="product-top">
-            <div class="icon">👻</div>
-            <div class="tag">Popular</div>
-          </div>
-          <h3>Snapchat+ 3 Months</h3>
-          <p>Premium Snapchat+ subscription for 3 months.</p>
-          <div class="price">220 MRU</div>
-          <ul class="features">
-            <li>Fast delivery</li>
-            <li>Simple order process</li>
-            <li>Direct WhatsApp support</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/22224620602?text=مرحبا%20اريد%203%20أشهر%20سناب%20شات%20بليس" target="_blank">Buy Now</a>
-        </div>
+<div class="card">
 
-        <div class="product-card">
-          <div class="product-top">
-            <div class="icon">👻</div>
-            <div class="tag">Best Value</div>
-          </div>
-          <h3>Snapchat+ 6 Months</h3>
-          <p>Premium Snapchat+ subscription for 6 months.</p>
-          <div class="price">450 MRU</div>
-          <ul class="features">
-            <li>Longer subscription period</li>
-            <li>Clean and easy ordering</li>
-            <li>Professional service</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/22224620602?text=مرحبا%20اريد%206%20أشهر%20سناب%20شات%20بليس" target="_blank">Buy Now</a>
-        </div>
+<h3>3 Months</h3>
 
-        <div class="product-card">
-          <div class="product-top">
-            <div class="icon">👻</div>
-            <div class="tag">Premium</div>
-          </div>
-          <h3>Snapchat+ 12 Months</h3>
-          <p>Premium Snapchat+ subscription for 12 months.</p>
-          <div class="price">900 MRU</div>
-          <ul class="features">
-            <li>Full year subscription</li>
-            <li>Premium long-term option</li>
-            <li>Direct WhatsApp order</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/22224620602?text=مرحبا%20اريد%2012%20شهر%20سناب%20شات%20بليس" target="_blank">Buy Now</a>
-        </div>
+<div class="price">220 MRU</div>
 
-        <div class="product-card">
-          <div class="product-top">
-            <div class="icon">🎬</div>
-            <div class="tag">Monthly</div>
-          </div>
-          <h3>Netflix Monthly</h3>
-          <p>Monthly Netflix subscription with fast delivery.</p>
-          <div class="price">200 MRU</div>
-          <ul class="features">
-            <li>Fast digital service</li>
-            <li>Easy contact</li>
-            <li>Direct order message</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/22224620602?text=مرحبا%20اريد%20اشتراك%20نتفلكس%20شهري" target="_blank">Buy Now</a>
-        </div>
+<a href="https://wa.me/22224620602?text=مرحبا%20اريد%203%20أشهر%20سناب%20شات%20بليس">
 
-        <div class="product-card">
-          <div class="product-top">
-            <div class="icon">🎥</div>
-            <div class="tag">Full Account</div>
-          </div>
-          <h3>Netflix Full Account</h3>
-          <p>Full Netflix account access for premium use.</p>
-          <div class="price">650 MRU</div>
-          <ul class="features">
-            <li>Full account service</li>
-            <li>Premium option</li>
-            <li>WhatsApp support</li>
-          </ul>
-          <a class="btn btn-primary" href="https://wa.me/22224620602?text=مرحبا%20اريد%20حساب%20نتفلكس%20كامل" target="_blank">Buy Now</a>
-        </div>
+<button>Buy Now</button>
 
-      </div>
-    </div>
-  </section>
+</a>
 
-  <section id="prices">
-    <div class="container">
-      <h2 class="section-title">Price List</h2>
-      <p class="section-text">
-        Clear prices help your store look more professional and trustworthy.
-      </p>
+</div>
 
-      <div class="price-table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Plan</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Snapchat+</td>
-              <td>3 Months</td>
-              <td><strong>220 MRU</strong></td>
-            </tr>
-            <tr>
-              <td>Snapchat+</td>
-              <td>6 Months</td>
-              <td><strong>450 MRU</strong></td>
-            </tr>
-            <tr>
-              <td>Snapchat+</td>
-              <td>12 Months</td>
-              <td><strong>900 MRU</strong></td>
-            </tr>
-            <tr>
-              <td>Netflix</td>
-              <td>Monthly</td>
-              <td><strong>200 MRU</strong></td>
-            </tr>
-            <tr>
-              <td>Netflix</td>
-              <td>Full Account</td>
-              <td><strong>650 MRU</strong></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-text">
-        Customers can reach you directly through WhatsApp, Snapchat, or TikTok.
-      </p>
+<div class="card">
 
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Order Directly</h3>
+<h3>6 Months</h3>
 
-          <div class="contact-item">
-            <div>
-              <strong>WhatsApp</strong>
-              <span>+222 24620602</span>
-            </div>
-            <a class="btn btn-primary" href="https://wa.me/22224620602?text=مرحبا%20اريد%20الطلب%20من%20UNKNOWN%20STORE" target="_blank">Message</a>
-          </div>
+<div class="price">450 MRU</div>
 
-          <div class="contact-item">
-            <div>
-              <strong>Snapchat</strong>
-              <span>uk_store7</span>
-            </div>
-            <a class="btn btn-secondary" href="https://www.snapchat.com/add/uk_store7" target="_blank">Open</a>
-          </div>
+<a href="https://wa.me/22224620602?text=مرحبا%20اريد%206%20أشهر%20سناب%20شات%20بليس">
 
-          <div class="contact-item">
-            <div>
-              <strong>TikTok</strong>
-              <span>uk_store9</span>
-            </div>
-            <a class="btn btn-secondary" href="https://www.tiktok.com/@uk_store9" target="_blank">Open</a>
-          </div>
-        </div>
+<button>Buy Now</button>
 
-        <div class="contact-card">
-          <h3>About UNKNOWN STORE</h3>
-          <p class="section-text" style="margin-bottom:0;">
-            UNKNOWN STORE is built for fast digital services with a premium dark style.
-            The design focuses on clarity, trust, and direct WhatsApp ordering for a better customer experience.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+</a>
 
-  <footer>
-    <div class="container">
-      © 2026 UNKNOWN STORE — Fast digital services
-    </div>
-  </footer>
+</div>
+
+
+<div class="card">
+
+<h3>12 Months</h3>
+
+<div class="price">900 MRU</div>
+
+<a href="https://wa.me/22224620602?text=مرحبا%20اريد%2012%20شهر%20سناب%20شات%20بليس">
+
+<button>Buy Now</button>
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="service">
+
+<div class="service-title">
+
+<img src="https://cdn-icons-png.flaticon.com/512/732/732228.png">
+
+Netflix
+
+</div>
+
+
+<div class="products">
+
+
+<div class="card">
+
+<h3>Monthly</h3>
+
+<div class="price">200 MRU</div>
+
+<a href="https://wa.me/22224620602?text=مرحبا%20اريد%20اشتراك%20نتفلكس">
+
+<button>Buy Now</button>
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>Full Account</h3>
+
+<div class="price">650 MRU</div>
+
+<a href="https://wa.me/22224620602?text=مرحبا%20اريد%20حساب%20نتفلكس%20كامل">
+
+<button>Buy Now</button>
+
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="contact">
+
+<h2>Contact</h2>
+
+<a href="https://wa.me/22224620602">WhatsApp: +222 24620602</a>
+
+<a href="https://snapchat.com/add/uk_store7">Snapchat: uk_store7</a>
+
+<a href="https://tiktok.com/@uk_store9">TikTok: uk_store9</a>
+
+</section>
+
+
+<footer>
+
+UNKNOWN STORE © 2026
+
+</footer>
 
 </body>
 </html>
