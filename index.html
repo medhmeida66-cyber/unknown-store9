@@ -13,71 +13,77 @@
 body{
 margin:0;
 font-family:Arial;
-background:#050505;
+background:#000;
 color:white;
 }
 
 header{
+
 text-align:center;
-padding:80px 20px;
-background:black;
-}
-
-header h1{
-font-size:60px;
+padding:70px 20px;
+font-size:40px;
+font-weight:bold;
 letter-spacing:3px;
-}
 
-section{
-padding:60px 20px;
-max-width:1100px;
-margin:auto;
-}
-
-.service{
-margin-bottom:80px;
-}
-
-.service-title{
-display:flex;
-align-items:center;
-gap:15px;
-font-size:32px;
-margin-bottom:30px;
-}
-
-.service-title img{
-width:40px;
 }
 
 .products{
+
+max-width:1100px;
+margin:auto;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+padding:20px;
+
 }
 
 .card{
 
-background:#111;
-padding:25px;
-border-radius:12px;
+background:#0d0d0d;
+border:1px solid #1c1c1c;
+border-radius:14px;
+padding:30px;
 text-align:center;
-border:1px solid #222;
+
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+border-color:#2f6bff;
+
+}
+
+.card img{
+
+width:55px;
+margin-bottom:15px;
+
+}
+
+.card h3{
+
+margin:10px 0;
 
 }
 
 .price{
-font-size:22px;
+
 color:#2f6bff;
-margin:10px 0;
+font-size:22px;
+margin-bottom:15px;
+
 }
 
 button{
 
 background:#2f6bff;
 border:none;
+padding:12px 22px;
 color:white;
-padding:12px 20px;
 border-radius:8px;
 font-size:16px;
 cursor:pointer;
@@ -85,63 +91,57 @@ cursor:pointer;
 }
 
 button:hover{
-background:#1e4bd1;
-}
 
-.contact{
-
-text-align:center;
-}
-
-.contact a{
-
-display:block;
-margin:10px 0;
-color:#2f6bff;
-font-size:18px;
+background:#1c4ee0;
 
 }
 
-footer{
-text-align:center;
-padding:30px;
-border-top:1px solid #222;
-margin-top:50px;
+.whatsapp{
+
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:16px 22px;
+border-radius:40px;
+font-size:16px;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+
+}
+
+.whatsapp:hover{
+
+opacity:0.9;
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <header>
 
-<h1>UNKNOWN STORE</h1>
+UNKNOWN STORE
 
 </header>
 
 
-<section class="service">
+<div class="products">
 
-<div class="service-title">
+
+<div class="card">
 
 <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
 
-Snapchat+
-
-</div>
-
-
-<div class="products">
-
-<div class="card">
-
-<h3>3 Months</h3>
+<h3>Snapchat+ 3 Months</h3>
 
 <div class="price">220 MRU</div>
 
-<a href="https://wa.me/22224620602?text=مرحبا%20اريد%203%20أشهر%20سناب%20شات%20بليس">
+<a href="https://wa.me/22224620602?text=مرحبا اريد 3 أشهر سناب شات بليس">
 
 <button>Buy Now</button>
 
@@ -150,13 +150,16 @@ Snapchat+
 </div>
 
 
+
 <div class="card">
 
-<h3>6 Months</h3>
+<img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
+
+<h3>Snapchat+ 6 Months</h3>
 
 <div class="price">450 MRU</div>
 
-<a href="https://wa.me/22224620602?text=مرحبا%20اريد%206%20أشهر%20سناب%20شات%20بليس">
+<a href="https://wa.me/22224620602?text=مرحبا اريد 6 أشهر سناب شات بليس">
 
 <button>Buy Now</button>
 
@@ -165,13 +168,16 @@ Snapchat+
 </div>
 
 
+
 <div class="card">
 
-<h3>12 Months</h3>
+<img src="https://cdn-icons-png.flaticon.com/512/733/733558.png">
+
+<h3>Snapchat+ 12 Months</h3>
 
 <div class="price">900 MRU</div>
 
-<a href="https://wa.me/22224620602?text=مرحبا%20اريد%2012%20شهر%20سناب%20شات%20بليس">
+<a href="https://wa.me/22224620602?text=مرحبا اريد 12 شهر سناب شات بليس">
 
 <button>Buy Now</button>
 
@@ -179,48 +185,35 @@ Snapchat+
 
 </div>
 
-</div>
-
-</section>
 
 
-
-<section class="service">
-
-<div class="service-title">
+<div class="card">
 
 <img src="https://cdn-icons-png.flaticon.com/512/732/732228.png">
 
-Netflix
-
-</div>
-
-
-<div class="products">
-
-
-<div class="card">
-
-<h3>Monthly</h3>
+<h3>Netflix Monthly</h3>
 
 <div class="price">200 MRU</div>
 
-<a href="https://wa.me/22224620602?text=مرحبا%20اريد%20اشتراك%20نتفلكس">
+<a href="https://wa.me/22224620602?text=مرحبا اريد اشتراك نتفلكس">
 
 <button>Buy Now</button>
 
 </a>
 
 </div>
+
 
 
 <div class="card">
 
-<h3>Full Account</h3>
+<img src="https://cdn-icons-png.flaticon.com/512/732/732228.png">
+
+<h3>Netflix Full Account</h3>
 
 <div class="price">650 MRU</div>
 
-<a href="https://wa.me/22224620602?text=مرحبا%20اريد%20حساب%20نتفلكس%20كامل">
+<a href="https://wa.me/22224620602?text=مرحبا اريد حساب نتفلكس كامل">
 
 <button>Buy Now</button>
 
@@ -231,28 +224,14 @@ Netflix
 
 </div>
 
-</section>
 
 
+<a class="whatsapp" href="https://wa.me/22224620602">
 
-<section class="contact">
+WhatsApp
 
-<h2>Contact</h2>
+</a>
 
-<a href="https://wa.me/22224620602">WhatsApp: +222 24620602</a>
-
-<a href="https://snapchat.com/add/uk_store7">Snapchat: uk_store7</a>
-
-<a href="https://tiktok.com/@uk_store9">TikTok: uk_store9</a>
-
-</section>
-
-
-<footer>
-
-UNKNOWN STORE © 2026
-
-</footer>
 
 </body>
 </html>
