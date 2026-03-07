@@ -245,7 +245,59 @@
   </style>
 </head>
 <body>
+<!-- Intro Animation -->
+<div id="intro">
+  <img src="IMG_0143.jpeg" class="logo-intro">
+  <h1>Unknown Store</h1>
+</div>
 
+<style>
+#intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0f0f0f;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 1s ease 3s forwards;
+}
+
+.logo-intro{
+width:140px;
+border-radius:20px;
+margin-bottom:20px;
+animation:logoPop 1.5s ease;
+}
+
+#intro h1{
+color:#ffd700;
+font-size:36px;
+animation:textFade 2s ease;
+}
+
+@keyframes logoPop{
+0%{transform:scale(0); opacity:0;}
+60%{transform:scale(1.2);}
+100%{transform:scale(1); opacity:1;}
+}
+
+@keyframes textFade{
+0%{opacity:0;}
+100%{opacity:1;}
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+</style>
   <header>
     <div class="topbar">
       <div class="logo">Kingo Store</div>
